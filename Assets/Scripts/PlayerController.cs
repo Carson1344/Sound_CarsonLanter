@@ -40,12 +40,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            isOnGround = true;
-            dirtParticle.Play();
-        }
-        else if (collision.gameObject.CompareTag("Obstacle"))
+        if (collision.gameObject.CompareTag("Obstacle"))
         {
             gameOver = true;
             Debug.Log("Game Over!");
@@ -55,5 +50,12 @@ public class PlayerController : MonoBehaviour
             dirtParticle.Stop();
             playerAudio.PlayOneShot(crashSound, 1.0f);
         }
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isOnGround = true;
+            dirtParticle.Play();
+        }
+        
+        
     }
 }
